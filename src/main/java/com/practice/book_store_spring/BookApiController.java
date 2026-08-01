@@ -42,4 +42,10 @@ public class BookApiController {
         Book savedBook = bookRepository.save(newBook);
         return ResponseEntity.status(201).body(savedBook);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBook(@PathVariable int id){
+        bookRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
