@@ -41,5 +41,4 @@ public class Book {
     public void setAuthor(String author) { this.author = author; }
     public void setSubject(String subject) { this.subject = subject; }
     public void setPrice (BigDecimal price) { this.price = price; }
-    public void setCopiesInStock(Integer copiesInStock) { this.copiesInStock = copiesInStock; }
 }
