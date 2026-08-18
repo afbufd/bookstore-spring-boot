@@ -44,8 +44,9 @@ public class BookApiController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable int id){
-        bookRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> deleteBook(@PathVariable int id){// pulls the 5 out of the URL
+        bookRepository.deleteById(id);// Delete FROM books WHERE id = 5;
+        // MySql executes the SQL and row is gone.
+        return ResponseEntity.noContent().build();// Method returns 204 with empty body
     }
 }

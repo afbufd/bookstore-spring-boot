@@ -50,8 +50,8 @@ const nextBtn = document.querySelector("#next-btn");
 async function deleteBook(id){
     try {
         const response = await fetch(`/api/books/${id}`, {method: "DELETE"});
-        if(!response.ok) throw new Error(`HTTP ${response.status}`);
-        loadBooks(currPage);
+        if(!response.ok) throw new Error(`HTTP ${response.status}`);// check if response.ok is false
+        loadBooks(currPage);// load current page refetches and makes sure the browser state = server state
     } catch(err){
         console.error("Failed to delete book", err);
         tableBody.textContent="Could not delete book";
@@ -61,7 +61,7 @@ async function deleteBook(id){
 async function loadBooks(page) {
     try{
         const response = await fetch(`/api/books?page=${page}`);
-        if(!response.ok){
+        if(!response.ok){// check response.ok
             throw new Error(`HTTP ${response.status}`);
         }
         const data = await response.json();
